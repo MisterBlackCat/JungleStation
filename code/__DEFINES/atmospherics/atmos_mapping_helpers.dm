@@ -76,3 +76,7 @@
 #define INCINERATOR_SYNDICATELAVA_AIRLOCK_CONTROLLER "syndicatelava_airlock_controller"
 #define INCINERATOR_SYNDICATELAVA_AIRLOCK_INTERIOR "syndicatelava_airlock_interior"
 #define INCINERATOR_SYNDICATELAVA_AIRLOCK_EXTERIOR "syndicatelava_airlock_exterior"
+
+//JUNGLESTATION
+//Jungle Station specifics here
+#define JUNGLESTATION_PLANET_ATMOS "o2=2;n2=70;co2=20;TEMP=431.15"

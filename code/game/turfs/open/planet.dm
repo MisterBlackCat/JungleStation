@@ -26,6 +26,14 @@
 	icon_state = "greenerdirt"
 	base_icon_state = "greenerdirt"
 
+/turf/open/misc/dirt/jungle/junglestation
+	slowdown = 0.5
+	initial_gas_mix = JUNGLESTATION_PLANET_ATMOS
+
+/turf/open/misc/dirt/jungle/junglestation/dark
+	icon_state = "greenerdirt"
+	base_icon_state = "greenerdirt"
+
 /turf/open/misc/dirt/jungle/wasteland //Like a more fun version of living in Arizona.
 	name = "cracked earth"
 	desc = "Looks a bit dry."

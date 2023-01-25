@@ -1,0 +1,29 @@
+{
+	"version": 1,
+	"map_name": "Fuzzy Station B",
+	"map_path": "map_files/FuzzyStationB",
+	"map_file": "FuzzyStationB.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+
+	},
+	"job_changes": {
+
+	},
+	"traits": [
+		{
+			"Up": 1,
+			"Linkage": null,
+			"Gravity": true,
+			"No Parallax": true
+		},
+		{
+			"Down": -1,
+			"Linkage": null,
+			"Gravity": true,
+			"No Parallax": true
+		}
+	]
+}
