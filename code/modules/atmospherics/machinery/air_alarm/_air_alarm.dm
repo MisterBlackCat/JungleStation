@@ -448,7 +448,10 @@ GLOBAL_LIST_EMPTY_TYPED(air_alarms, /obj/machinery/airalarm)
 	danger_level = max(danger_level, tlv_collection["temperature"].check_value(temp))
 	for(var/gas_path in environment.gases)
 		var/moles = environment.gases[gas_path][MOLES]
-		danger_level = max(danger_level, tlv_collection[gas_path].check_value(pressure * moles / total_moles))
+		if(total_moles <= 0.0)
+			danger_level = 1
+		else
+			danger_level = max(danger_level, tlv_collection[gas_path].check_value(pressure * moles / total_moles))
 
 	if(danger_level)
 		alarm_manager.send_alarm(ALARM_ATMOS)

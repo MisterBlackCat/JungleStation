@@ -262,3 +262,91 @@
 /area/icemoon/underground/explored // ruins can't spawn here
 	name = "Icemoon Underground"
 	area_flags = UNIQUE_AREA
+
+
+
+/**********************Jungle Areas**************************/
+
+/area/jungle_moon
+	icon = 'icons/area/areas_station.dmi'
+	icon_state = "mining"
+	has_gravity = STANDARD_GRAVITY
+	flags_1 = NONE
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	sound_environment = SOUND_AREA_ICEMOON
+	ambient_buzz = 'sound/ambience/magma.ogg'
+
+/area/jungle_moon/surface
+	name = "Icemoon"
+	icon_state = "explored"
+	always_unpowered = TRUE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	requires_power = TRUE
+	ambience_index = AMBIENCE_MINING
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
+
+/area/jungle_moon/surface/outdoors // parent that defines if something is on the exterior of the station.
+	name = "Icemoon Wastes"
+	outdoors = TRUE
+
+/area/jungle_moon/surface/outdoors/nospawn // this is the area you use for stuff to not spawn, but if you still want weather.
+
+/area/jungle_moon/surface/outdoors/noteleport // for places like the cursed spring water
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | NOTELEPORT
+
+/area/jungle_moon/surface/outdoors/noruins // when you want random generation without the chance of getting ruins
+	icon_state = "noruins"
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
+	map_generator = /datum/map_generator/cave_generator/jungle/surface/noruins
+
+/area/jungle_moon/surface/outdoors/labor_camp
+	name = "Icemoon Labor Camp"
+	area_flags = UNIQUE_AREA
+
+/area/jungle_moon/surface/outdoors/unexplored //monsters and ruins spawn here
+	icon_state = "unexplored"
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | CAVES_ALLOWED
+
+/area/jungle_moon/surface/outdoors/unexplored/rivers // rivers spawn here
+	icon_state = "danger"
+	map_generator = /datum/map_generator/cave_generator/jungle/surface
+
+/area/jungle_moon/surface/outdoors/unexplored/rivers/no_monsters
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
+
+/area/jungle_moon/underground
+	name = "Icemoon Caves"
+	outdoors = TRUE
+	always_unpowered = TRUE
+	requires_power = TRUE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	ambience_index = AMBIENCE_MINING
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	min_ambience_cooldown = 70 SECONDS
+	max_ambience_cooldown = 220 SECONDS
+
+/area/jungle_moon/underground/unexplored // mobs and megafauna and ruins spawn here
+	name = "Icemoon Caves"
+	icon_state = "unexplored"
+	area_flags = CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED
+
+/area/jungle_moon/underground/unexplored/rivers // rivers spawn here
+	icon_state = "danger"
+	map_generator = /datum/map_generator/cave_generator/jungle
+
+/area/jungle_moon/underground/unexplored/rivers/deep
+	map_generator = /datum/map_generator/cave_generator/jungle/deep
+
+/area/jungle_moon/underground/unexplored/rivers/deep/shoreline //use this for when you don't want mobs to spawn in certain areas in the "deep" portions. Think adjacent to rivers or station structures.
+	icon_state = "shore"
+	area_flags = UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED
+
+/area/jungle_moon/underground/explored // ruins can't spawn here
+	name = "Icemoon Underground"
+	area_flags = UNIQUE_AREA

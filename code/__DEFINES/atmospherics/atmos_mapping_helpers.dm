@@ -79,4 +79,4 @@
 
 //JUNGLESTATION
 //Jungle Station specifics here
-#define JUNGLESTATION_PLANET_ATMOS "o2=2;n2=70;co2=20;TEMP=431.15"
+#define JUNGLESTATION_PLANET_ATMOS "o2=2;n2=70;co2=20;TEMP=323.15"

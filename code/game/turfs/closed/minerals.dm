@@ -393,6 +393,77 @@
 		/obj/item/stack/ore/uranium = 35,
 	)
 
+///Start Jungle Biome
+/turf/closed/mineral/random/jungle
+	name = "mountainside"
+	icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
+	icon_state = "rock"
+	base_icon_state = "smoothrocks"
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+	defer_change = TRUE
+	turf_type = /turf/open/misc/ashplanet/rocky
+	baseturfs = /turf/open/misc/ashplanet/rocky
+	initial_gas_mix = ICEMOON_DEFAULT_ATMOS
+	opacity = TRUE
+	density = TRUE
+	layer = EDGED_TURF_LAYER
+	plane = WALL_PLANE_UPPER
+
+/turf/closed/mineral/random/jungle/Change_Ore(ore_type, random = 0)
+	. = ..()
+	if(mineralType)
+		icon = MAP_SWITCH('icons/turf/smoothrocks.dmi', 'icons/turf/mining.dmi')
+		icon_state = "rock"
+		base_icon_state = "smoothrocks"
+		smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
+
+/turf/closed/mineral/random/jungle/mineral_chances()
+	return list(
+		/obj/item/stack/ore/bluespace_crystal = 1,
+		/obj/item/stack/ore/diamond = 1,
+		/obj/item/stack/ore/gold = 10,
+		/obj/item/stack/ore/iron = 40,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 12,
+		/obj/item/stack/ore/titanium = 11,
+		/obj/item/stack/ore/uranium = 5,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 4,
+	)
+
+/turf/closed/mineral/random/jungle/underground
+	baseturfs = /turf/open/misc/asteroid/snow/icemoon
+	// abundant ore
+	mineralChance = 20
+
+/turf/closed/mineral/random/jungle/underground/mineral_chances()
+	return list(
+		/obj/item/stack/ore/bananium = 1,
+		/obj/item/stack/ore/bluespace_crystal = 2,
+		/obj/item/stack/ore/diamond = 4,
+		/obj/item/stack/ore/gold = 20,
+		/obj/item/stack/ore/iron = 20,
+		/obj/item/stack/ore/plasma = 20,
+		/obj/item/stack/ore/silver = 24,
+		/obj/item/stack/ore/titanium = 22,
+		/obj/item/stack/ore/uranium = 10,
+		/turf/closed/mineral/gibtonite/ice/icemoon = 8,
+	)
+
+/turf/closed/mineral/random/jungle/high_chance
+
+/turf/closed/mineral/random/jungle/high_chance/mineral_chances()
+	return list(
+		/obj/item/stack/ore/bluespace_crystal = 20,
+		/obj/item/stack/ore/diamond = 30,
+		/obj/item/stack/ore/gold = 45,
+		/obj/item/stack/ore/plasma = 50,
+		/obj/item/stack/ore/silver = 50,
+		/obj/item/stack/ore/titanium = 45,
+		/obj/item/stack/ore/uranium = 35,
+	)
+///End Jungle Biome
+
 /turf/closed/mineral/random/labormineral
 	icon_state = "rock_labor"
 

@@ -1,7 +1,6 @@
-//Toxin storms happen frequently on the jungle planet. They obscure vision (slightly) and cause toxin buildup in anyone caught out in them without proper protection
+//Ash storms happen frequently on lavaland. They heavily obscure vision, and cause high fire damage to anyone caught outside.
 /datum/weather/toxic_rain
-	name = "toxic rain storm"
-	desc = "Regular rainstorms occur on this planet. While benign to the native fauna, the precipitation is quite toxic to most carbon based life-forms."
+	name = "ash storm"
 	desc = "An intense atmospheric storm lifts ash off of the planet's surface and billows it down across the area, dealing intense fire damage to the unprotected."
 
 	telegraph_message = "<span class='boldwarning'>An eerie moan rises on the wind. Sheets of burning ash blacken the horizon. Seek shelter.</span>"
@@ -11,7 +10,7 @@
 	weather_message = "<span class='userdanger'><i>Smoldering clouds of scorching ash billow down around you! Get inside!</i></span>"
 	weather_duration_lower = 600
 	weather_duration_upper = 1200
-	weather_overlay = "ash_storm"
+	weather_overlay = "toxic_rain"
 
 	end_message = "<span class='boldannounce'>The shrieking wind whips away the last of the ash and falls to its usual murmur. It should be safe to go outside now.</span>"
 	end_duration = 300
@@ -29,7 +28,7 @@
 	var/list/weak_sounds = list()
 	var/list/strong_sounds = list()
 
-/datum/weather/ash_storm/telegraph()
+/datum/weather/toxic_rain/telegraph()
 	var/list/eligible_areas = list()
 	for (var/z in impacted_z_levels)
 		eligible_areas += SSmapping.areas_in_z["[z]"]
@@ -45,35 +44,35 @@
 
 	//We modify this list instead of setting it to weak/stron sounds in order to preserve things that hold a reference to it
 	//It's essentially a playlist for a bunch of components that chose what sound to loop based on the area a player is in
-	GLOB.ash_storm_sounds += weak_sounds
+	GLOB.toxic_storm_sounds += weak_sounds
 	return ..()
 
-/datum/weather/ash_storm/start()
-	GLOB.ash_storm_sounds -= weak_sounds
-	GLOB.ash_storm_sounds += strong_sounds
+/datum/weather/toxic_rain/start()
+	GLOB.toxic_storm_sounds -= weak_sounds
+	GLOB.toxic_storm_sounds += strong_sounds
 	return ..()
 
-/datum/weather/ash_storm/wind_down()
-	GLOB.ash_storm_sounds -= strong_sounds
-	GLOB.ash_storm_sounds += weak_sounds
+/datum/weather/toxic_rain/wind_down()
+	GLOB.toxic_storm_sounds -= strong_sounds
+	GLOB.toxic_storm_sounds += weak_sounds
 	return ..()
 
-/datum/weather/ash_storm/end()
-	GLOB.ash_storm_sounds -= weak_sounds
+/datum/weather/toxic_rain/end()
+	GLOB.toxic_storm_sounds -= weak_sounds
 	return ..()
 
-/datum/weather/ash_storm/can_weather_act(mob/living/mob_to_check)
+/datum/weather/toxic_rain/can_weather_act(mob/living/mob_to_check)
 	. = ..()
 	if(!. || !ishuman(mob_to_check))
 		return
 	var/mob/living/carbon/human/human_to_check = mob_to_check
-	if(human_to_check.has_smoke_protection())
+	if(human_to_check.get_thermal_protection() >= FIRE_IMMUNITY_MAX_TEMP_PROTECT)
 		return FALSE
 
-/datum/weather/ash_storm/weather_act(mob/living/victim)
-	victim.adjustToxLoss(4)
+/datum/weather/toxic_rain/weather_act(mob/living/victim)
+	victim.adjustFireLoss(4)
 
-/datum/weather/ash_storm/end()
+/datum/weather/toxic_rain/end()
 	. = ..()
 	for(var/turf/open/misc/asteroid/basalt/basalt as anything in GLOB.dug_up_basalt)
 		if(!(basalt.loc in impacted_areas) || !(basalt.z in impacted_z_levels))
@@ -85,7 +84,7 @@
 			basalt.icon_state += "[rand(0,12)]"
 
 //Emberfalls are the result of an ash storm passing by close to the playable area of lavaland. They have a 10% chance to trigger in place of an ash storm.
-/datum/weather/ash_storm/emberfall
+/datum/weather/toxic_rain/emberfall
 	name = "emberfall"
 	desc = "A passing ash storm blankets the area in harmless embers."
 

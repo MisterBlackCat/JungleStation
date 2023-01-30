@@ -410,11 +410,13 @@
 
 /obj/item/mod/module/ash_accretion/on_suit_activation()
 	ADD_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
+	ADD_TRAIT(mod.wearer, TRAIT_TOXICSTORM_IMMUNE, MOD_TRAIT)
 	ADD_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
 	RegisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 
 /obj/item/mod/module/ash_accretion/on_suit_deactivation(deleting = FALSE)
 	REMOVE_TRAIT(mod.wearer, TRAIT_ASHSTORM_IMMUNE, MOD_TRAIT)
+	REMOVE_TRAIT(mod.wearer, TRAIT_TOXICSTORM_IMMUNE, MOD_TRAIT)
 	REMOVE_TRAIT(mod.wearer, TRAIT_SNOWSTORM_IMMUNE, MOD_TRAIT)
 	UnregisterSignal(mod.wearer, COMSIG_MOVABLE_MOVED)
 	if(!traveled_tiles)

@@ -271,7 +271,7 @@
 	aggro_vision_range = 9
 	speed = 3
 	faction = list("mining")
-	weather_immunities = list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE)
+	weather_immunities = list(TRAIT_LAVA_IMMUNE, TRAIT_ASHSTORM_IMMUNE, TRAIT_TOXICSTORM_IMMUNE)
 	obj_damage = 30
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	see_in_dark = NIGHTVISION_FOV_RANGE

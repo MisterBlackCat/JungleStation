@@ -60,7 +60,7 @@
 	icon_state = "lobstrosity"
 	icon_living = "lobstrosity"
 	icon_dead = "lobstrosity_dead"
-	weather_immunities = list(TRAIT_LAVA_IMMUNE,TRAIT_ASHSTORM_IMMUNE)
+	weather_immunities = list(TRAIT_LAVA_IMMUNE,TRAIT_ASHSTORM_IMMUNE, TRAIT_TOXICSTORM_IMMUNE)
 
 /obj/item/crusher_trophy/lobster_claw
 	name = "lobster claw"

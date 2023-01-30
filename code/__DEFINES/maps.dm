@@ -87,6 +87,7 @@ Always compile, always use that verb, and always make sure that it works for wha
 // boolean - weather types that occur on the level
 #define ZTRAIT_SNOWSTORM "Weather_Snowstorm"
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
+#define ZTRAIT_TOXICSTORM "Weather_Toxicrain"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
 
 /// boolean - does this z prevent ghosts from observing it

@@ -509,6 +509,7 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Weather immunities, also protect mobs inside them.
 #define TRAIT_LAVA_IMMUNE "lava_immune" //Used by lava turfs and The Floor Is Lava.
 #define TRAIT_ASHSTORM_IMMUNE "ashstorm_immune"
+#define TRAIT_TOXICSTORM_IMMUNE "toxicstorm_immune"
 #define TRAIT_SNOWSTORM_IMMUNE "snowstorm_immune"
 #define TRAIT_RADSTORM_IMMUNE "radstorm_immune"
 #define TRAIT_VOIDSTORM_IMMUNE "voidstorm_immune"

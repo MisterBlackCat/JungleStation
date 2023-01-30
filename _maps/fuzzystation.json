@@ -26,7 +26,7 @@
 			"Linkage": null,
 			"Gravity": true,
 			"Ice Ruins Underground": false,
-			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
+			"Baseturf": "/turf/open/lava/plasma/ice_moon",
 			"No Parallax": true
 		},
 		{
@@ -39,5 +39,5 @@
 			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
 			"No Parallax": true
 		}
-	]	
+	]
 }

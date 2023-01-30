@@ -634,6 +634,33 @@
 		"Qualified Doctor" = list(SKIN_ICON_STATE = "qualified_doctor"),
 	)
 
+/obj/item/robot_model/hydroponic
+	name = "Hydroponic"
+	basic_modules = list(
+		/obj/item/assembly/flash/cyborg,
+		/obj/item/extinguisher/mini,
+		/obj/item/seeder,
+		/obj/item/reagent_containers/dropper,
+		/obj/item/borg/apparatus/seeds,
+		/obj/item/borg/apparatus/beaker,
+		/obj/item/reagent_containers/cup/watering_can/advanced/borg,
+		/obj/item/reagent_containers/cup/watering_can/advanced/borg/nutrient_dispenser,
+		/obj/item/hatchet,
+		/obj/item/cultivator,
+		/obj/item/shovel/spade,
+		/obj/item/plant_analyzer,
+		/obj/item/storage/bag/plants/portaseeder,
+		/obj/item/storage/bag/plants)
+	radio_channels = list(RADIO_CHANNEL_SERVICE)
+	emag_modules = list(/obj/item/reagent_containers/borghypo/medical/hacked)
+	cyborg_base_icon = "hydroponics"
+	model_select_icon = "hydroponics"
+	model_traits = list(TRAIT_PUSHIMMUNE)
+	hat_offset = 3
+	borg_skins = list(
+		"Hydroponics Model" = list(SKIN_ICON_STATE = "hydroponics"),
+	)
+
 /obj/item/robot_model/miner
 	name = "Miner"
 	basic_modules = list(

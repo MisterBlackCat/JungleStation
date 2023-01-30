@@ -1032,6 +1032,24 @@
 	else
 		return ..()
 
+/obj/machinery/hydroponics/proc/borg_seed_plant(obj/item/O, mob/user)
+	if(!myseed)
+		if(istype(O, /obj/item/seeds/kudzu))
+			investigate_log("had Kudzu planted in it by [key_name(user)] at [AREACOORD(src)].", INVESTIGATE_BOTANY)
+		if(!user.transferItemToLoc(O, src))
+			return
+		SEND_SIGNAL(O, COMSIG_SEED_ON_PLANTED, src)
+		to_chat(user, span_notice("You plant [O]."))
+		set_seed(O)
+		TRAY_NAME_UPDATE
+		age = 1
+		set_plant_health(myseed.endurance)
+		lastcycle = world.time
+		return
+	else
+		to_chat(user, span_warning("[src] already has seeds in it!"))
+		return
+
 /obj/machinery/hydroponics/attackby_secondary(obj/item/weapon, mob/user, params)
 	if (istype(weapon, /obj/item/reagent_containers/syringe))
 		to_chat(user, span_warning("You can't get any extract out of this plant."))
@@ -1049,7 +1067,13 @@
 	if(.)
 		return
 	if(issilicon(user)) //How does AI know what plant is?
-		return
+		///if(istype(to_check, sort))
+		if(istype(user, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/borg = user
+			if(!istype(borg.model, /obj/item/robot_model/hydroponic))
+				return
+		else
+			return
 	if(plant_status == HYDROTRAY_PLANT_HARVESTABLE)
 		return myseed.harvest(user)
 

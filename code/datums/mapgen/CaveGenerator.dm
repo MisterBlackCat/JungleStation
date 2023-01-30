@@ -80,12 +80,16 @@
 	var/feature_allowed = (generate_in.area_flags & FLORA_ALLOWED) && length(feature_spawn_list)
 	var/mobs_allowed = (generate_in.area_flags & MOB_SPAWN_ALLOWED) && length(mob_spawn_list)
 	var/megas_allowed = (generate_in.area_flags & MEGAFAUNA_SPAWN_ALLOWED) && length(megafauna_spawn_list)
+	var/no_walls = (generate_in.no_walls)
 
 	for(var/i in turfs) //Go through all the turfs and generate them
 		var/turf/gen_turf = i
 
 		var/closed = string_gen[world.maxx * (gen_turf.y - 1) + gen_turf.x] != "0"
 		var/turf/new_turf = pick(closed ? closed_turf_types : open_turf_types)
+
+		if(no_walls)
+			new_turf = pick(open_turf_types)
 
 		// The assumption is this will be faster then changeturf, and changeturf isn't required since by this point
 		// The old tile hasn't got the chance to init yet
